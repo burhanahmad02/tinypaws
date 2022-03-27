@@ -1,0 +1,373 @@
+/*CSS used by a game level*/
+.level-page {
+  background-image: url('../images/bg2.png');
+}
+
+img.original {
+  transform: rotate(0deg)
+}
+
+img.rotationNinty {
+  transform: rotate(90deg)
+}
+
+img.rotationOneEighty {
+  transform: rotate(180deg)
+}
+
+img.rotationTwoSeventy {
+  transform: rotate(270deg)
+}
+
+#playable-section img {
+  border-radius: 20%;
+  height: 98%;
+  width: 98%;
+  max-height: 210px;
+  max-width: 210px;
+  pointer-events: auto;
+}
+
+/*Solution by Jeremy Brown http://jsfiddle.net/8vfcbk2q/*/
+#playable-section img {
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  animation-name: rotation;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+}
+
+.ghost {
+  position: absolute;
+  top: -500px;
+  left: 0px;
+}
+
+table {
+  text-align: center;
+}
+
+#level {
+  padding-top: 5vh;
+  position: relative;
+  text-align: center;
+  height: 100%;
+}
+
+#playable-section {
+  display: block;
+  padding-top: 5vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#puzzle-section {
+  float: none;
+  margin-left: 13vw;
+  padding-top: 5vh;
+}
+
+#puzzle {
+  border: 1px solid rgba(27, 79, 22, 0.5);
+  background-color: rgba(93, 123, 46, 0.4);
+  height: 72vmin;
+  width: 75vmin;
+}
+
+#puzzle td {
+  margin-right: 1px;
+  margin-left: 1px;
+  display: inline-block;
+}
+
+#dock-section {
+  float: none;
+  height: 16.5vw;
+  max-height: 16.5vw;
+  width: 73vw;
+  max-width: 73vw;
+  margin-bottom: 2px;
+  margin-top: -7vh;
+  margin-left: 12vw;
+  border: 10px solid rgb(27, 79, 22, 0.9);
+  border-radius: 5%;
+  background-color: rgba(93, 123, 46, 0.4);
+  overflow: auto;
+}
+
+#dock {
+  display: inline-block;
+}
+
+#dock td {
+  padding: 0;
+  width: 72vw;
+}
+
+#dock div {
+  float: left;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+#dock .slot {
+  height: 15vw;
+  width: 15vw;
+  margin: 0;
+}
+
+#dock p {
+  position: relative;
+  top: -14vmin;
+  font-size: 4vmin;
+  pointer-events: none;
+}
+
+#dock img {
+  opacity: 1;
+}
+
+#dock img.inactive {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+.slot {
+  -webkit-clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0 75%, 0 25%);
+  clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0 75%, 0 25%);
+  background-color: rgba(27, 79, 22, 0.8);
+}
+
+.slot .start {
+  text-align: center;
+  vertical-align: middle;
+  z-index: -1;
+  position: relative;
+  margin: 0;
+}
+
+.slot .end {
+  text-align: center;
+  vertical-align: top;
+  z-index: -1;
+  position: relative;
+  margin: 0;
+}
+
+.inactive {
+  background-color: rgba(219, 219, 219, 0.5);
+}
+
+#pop {
+  width: 50vw;
+}
+
+#pop-up {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  left: 40vw;
+  width: 60%;
+  margin-top: -50px;
+  margin-left: -20%;
+  text-align: center;
+  background-color: transparent;
+}
+
+#pop-up-content {
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(83, 141, 187);
+  color: rgb(255, 197, 28);
+  border-radius: 5%;
+  width: 80%;
+}
+
+#pop-up .star {
+  position: relative;
+  top: -10px;
+}
+
+#pop-up .star:nth-child(1) {
+  height: 15vw;
+  width: 15vw;
+  margin-bottom: -1vw;
+  -webkit-animation: first-star-animation 0.8s linear;
+  transform: rotate(-25deg) scale(0.8);
+}
+
+#score {
+  text-align: center;
+}
+
+@-webkit-keyframes first-star-animation {
+  0% {
+    -webkit-transform: rotate(-285deg) scale(0.1);
+  }
+
+  80% {
+    -webkit-transform: rotate(-25deg) scale(1);
+  }
+
+  100% {
+    -webkit-transform: rotate(-25deg) scale(0.8);
+  }
+}
+
+#pop-up .star:nth-child(2) {
+  height: 18vw;
+  width: 18vw;
+  margin-top: -1vw;
+  margin-left: -3vw;
+  margin-right: -3vw;
+  -webkit-animation: second-star-animation 0.8s linear;
+  transform: rotate(0deg) scale(0.8);
+}
+
+@-webkit-keyframes second-star-animation {
+  0% {
+    -webkit-transform: rotate(-250deg) scale(0.1);
+  }
+
+  80% {
+    -webkit-transform: rotate(0deg) scale(1);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg) scale(0.8);
+  }
+}
+
+#pop-up .star:nth-child(3) {
+  height: 15vw;
+  width: 15vw;
+  margin-bottom: -1vw;
+  -webkit-animation: third-star-animation 0.8s linear;
+  transform: rotate(25deg) scale(0.8);
+}
+
+@-webkit-keyframes third-star-animation {
+  0% {
+    -webkit-transform: rotate(-225deg) scale(0.1);
+  }
+
+  80% {
+    -webkit-transform: rotate(25deg) scale(1);
+  }
+
+  100% {
+    -webkit-transform: rotate(25deg) scale(0.8);
+  }
+}
+
+#pop-up #buttons {
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  width: 100%;
+  left: -10%;
+  position: relative;
+  padding: 5% 10% 5% 10%;
+  background-color: rgb(98, 157, 197);
+  border-radius: 5%;
+}
+
+#pop-up #buttons img {
+  height: 12vw;
+  width: 12vw;
+  margin-right: 2vw;
+}
+
+#pop-up #buttons img:last-child {
+  margin-right: 0;
+}
+
+#pop-up #buttons img:nth-child(3) {
+  margin-right: 0;
+}
+
+@media only screen and (min-width: 680px) {
+  #playable-section {
+    display: inline-block;
+  }
+
+  #puzzle-section {
+    float: left;
+    margin-left: 0;
+    padding-top: 0;
+  }
+
+  #dock-section {
+    float: right;
+    margin: auto;
+    margin-left: 2vw;
+    width: auto;
+    max-width: 20vmin;
+    height: 69vh;
+    max-height: 69vh;
+  }
+
+  #dock {
+    display: auto;
+    max-width: 20vw;
+  }
+
+  #dock td {
+    padding: 5%;
+    width: 16.5vh;
+  }
+
+  #dock div {
+    float: none;
+    margin: auto;
+  }
+
+  #dock .slot {
+    height: 15vh;
+    width: 15vh;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  #pop {
+    width: auto;
+  }
+
+  #pop-up {
+    width: 32%;
+    margin-left: -50px;
+  }
+
+  #pop-up .star:nth-child(1) {
+    height: 8vw;
+    width: 8vw;
+  }
+
+  #pop-up .star:nth-child(2) {
+    height: 9vw;
+    width: 9vw;
+    margin-left: -1.5vw;
+    margin-right: -1.5vw;
+  }
+
+  #pop-up .star:nth-child(3) {
+    height: 8vw;
+    width: 8vw;
+  }
+
+  #pop-up #buttons img {
+    height: 7vw;
+    width: 7vw;
+    margin-right: 2vw;
+  }
+}
